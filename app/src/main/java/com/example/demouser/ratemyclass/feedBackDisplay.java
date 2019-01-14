@@ -1,6 +1,8 @@
 package com.example.demouser.ratemyclass;
 
+import android.arch.lifecycle.Observer;
 import android.content.Intent;
+import android.support.annotation.Nullable;
 import android.support.design.widget.FloatingActionButton;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
@@ -14,6 +16,8 @@ import java.util.List;
 public class feedBackDisplay extends AppCompatActivity {
     Intent intent;
     List<feedbackClass> cards;
+    courseAdapter adapter;
+    feedbackRepository rep;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -22,8 +26,18 @@ public class feedBackDisplay extends AppCompatActivity {
 
         RecyclerView cardList = (RecyclerView) findViewById(R.id.cardList);
         cardList.setLayoutManager(new LinearLayoutManager(this));
-        List<feedbackClass> cards = loadCardsFromDatabase();
-        cardList.setAdapter(new courseAdapter(cards));
+        //List<feedbackClass> cards = loadCardsFromDatabase();
+        adapter = new courseAdapter();
+        cardList.setAdapter(adapter);
+
+        rep = new feedbackRepository(getApplication());
+
+        rep.getFeedbacks().observe(this, new Observer<List<feedbackClass>>() {
+            @Override
+            public void onChanged(@Nullable List<feedbackClass> feedbackClasses) {
+                adapter.setCards(feedbackClasses);
+            }
+        });
 
         FloatingActionButton fab = (FloatingActionButton) findViewById(R.id.fab);
         fab.setOnClickListener(new View.OnClickListener() {
@@ -34,17 +48,20 @@ public class feedBackDisplay extends AppCompatActivity {
             }
         });
     }
+    public void deleteButton(View view){
+        rep.delete();
+    }
 
-    public List<feedbackClass> loadCardsFromDatabase() {
+   /** public List<feedbackClass> loadCardsFromDatabase() {
         feedbackClass firstCard  = new feedbackClass("Nick", "10", "Fall 2018",
-                "Yes", "Takehome", "Self-scheduled","It was great!");
+                "Yes", "Takehome", "Self-scheduled","It was great!", "CSC 111");
         feedbackClass secondCard  = new feedbackClass("Dominique", "10", "Fall 2018",
-                "Yes", "Takehome", "Self-scheduled","It was great!");
+                "Yes", "Takehome", "Self-scheduled","It was great!", "CSC 111");
         feedbackClass thirdCard  = new feedbackClass("Sara", "10", "Fall 2018",
-                "Yes", "Takehome", "Self-scheduled","It was great!");
+                "Yes", "Takehome", "Self-scheduled","It was great!", "CSC 111");
         feedbackClass fourthCard  = new feedbackClass("JJ", "10", "Fall 2018",
                 "Yes", "Takehome", "Self-scheduled","AJKDGHAKDHKAS FADJHG " +
-                "KAJSDHGKAJ SDHGAS HGKJASHG ASJGH SJDHGA JSKDHG SKGHAKJSDG LGHSALJKD GKADHG ASDKJHG SJDHG AKJG. ");
+                "KAJSDHGKAJ SDHGAS HGKJASHG ASJGH SJDHGA JSKDHG SKGHAKJSDG LGHSALJKD GKADHG ASDKJHG SJDHG AKJG. ", "CSC 111");
 
         cards = new ArrayList<>();
         cards.add(firstCard);
@@ -53,7 +70,9 @@ public class feedBackDisplay extends AppCompatActivity {
         cards.add(fourthCard);
 
         return cards;
-    }
+    } **/
+
+
 
 
 }

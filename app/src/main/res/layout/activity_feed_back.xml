@@ -39,6 +39,29 @@
                 android:layout_height="wrap_content"
                 android:text="@string/Question2" />
 
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
+
+                <Spinner
+                    android:id="@+id/semester"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="10dp"
+                    android:background="@android:drawable/btn_dropdown"
+                    android:spinnerMode="dropdown" />
+
+                <Spinner
+                    android:id="@+id/year"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="10dp"
+                    android:background="@android:drawable/btn_dropdown"
+                    android:spinnerMode="dropdown" />
+
+            </LinearLayout>
+
             <TextView
                 android:id="@+id/Q3"
                 android:layout_width="match_parent"
@@ -59,11 +82,57 @@
                 android:layout_height="wrap_content"
                 android:text="@string/Question4" />
 
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+            <RadioGroup
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:orientation="horizontal">
+
+
+                <RadioButton
+                    android:id="@+id/radioButton"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:text="Yes" />
+
+                <RadioButton
+                    android:id="@+id/radioButton2"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:text="No" />
+
+            </RadioGroup>
+
+            <EditText
+                android:id="@+id/quizzesAnswer"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:ems="10"
+                android:inputType="textPersonName"
+                android:text="" />
+
+
+        </LinearLayout>
+
             <TextView
                 android:id="@+id/Q5"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:text="@string/Question5" />
+
+            <Spinner
+                android:id="@+id/midtermInput"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="10dp"
+                android:background="@android:drawable/btn_dropdown"
+                android:spinnerMode="dropdown" />
 
             <TextView
                 android:id="@+id/Q6"
@@ -71,7 +140,13 @@
                 android:layout_height="wrap_content"
                 android:text="@string/Question6" />
 
-
+            <Spinner
+                android:id="@+id/finalInput"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="10dp"
+                android:background="@android:drawable/btn_dropdown"
+                android:spinnerMode="dropdown" />
 
             <TextView
                 android:id="@+id/Q7"
@@ -101,6 +176,22 @@
                 android:inputType="textPersonName"
                 android:text="" />
 
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+
+                <Button
+                    android:id="@+id/button"
+                    android:layout_width="250px"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentRight="true"
+                    android:layout_alignParentBottom="true"
+                    android:background="@color/colorPrimary"
+                    android:onClick="feedbackSubmit"
+
+                    android:text="@string/welcomepagesubmit" />
+
+            </RelativeLayout>
         </LinearLayout>
     </ScrollView>
 </LinearLayout>

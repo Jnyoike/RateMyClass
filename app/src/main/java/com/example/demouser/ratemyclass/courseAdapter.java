@@ -10,13 +10,15 @@ import com.example.demouser.ratemyclass.R;
 import com.example.demouser.ratemyclass.cardHolder;
 import com.example.demouser.ratemyclass.feedbackClass;
 
+import java.util.ArrayList;
 import java.util.List;
 
 public class courseAdapter extends RecyclerView.Adapter<cardHolder> {
     private List<feedbackClass> cards;
 
-    public courseAdapter (List<feedbackClass> cards) {
-        this.cards = cards;
+    public courseAdapter () {
+
+        this.cards = new ArrayList<>();
     }
 
     @Override
@@ -34,5 +36,12 @@ public class courseAdapter extends RecyclerView.Adapter<cardHolder> {
     @Override
     public int getItemCount() {
         return cards.size();
+    }
+
+    // set
+    public void setCards(List<feedbackClass> cards){
+        this.cards = cards;
+
+        notifyDataSetChanged();
     }
 }

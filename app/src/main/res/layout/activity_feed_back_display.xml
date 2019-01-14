@@ -5,7 +5,8 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
-    tools:context=".feedBackDisplay">
+    tools:context=".feedBackDisplay"
+   >
 
     <android.support.v7.widget.RecyclerView
         android:id="@+id/cardList"
@@ -31,6 +32,17 @@
             android:focusable="true"
             app:backgroundTint="@color/colorPrimary"
             app:srcCompat="@drawable/pluswhite" />
+
+        <Button
+            android:id="@+id/deletebutton"
+            android:layout_width="250px"
+            android:layout_height="wrap_content"
+            android:layout_alignParentLeft="true"
+            android:layout_alignParentBottom="true"
+            android:background="@color/colorPrimary"
+            android:onClick="deleteButton"
+
+            android:text="Clear Database" />
     </RelativeLayout>
 
 </LinearLayout>

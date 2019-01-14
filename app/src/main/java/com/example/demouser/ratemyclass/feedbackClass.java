@@ -1,15 +1,33 @@
 package com.example.demouser.ratemyclass;
 
+import android.arch.persistence.room.ColumnInfo;
+import android.arch.persistence.room.Entity;
+import android.arch.persistence.room.PrimaryKey;
+
+@Entity(tableName = "feedback_table")
 public class feedbackClass {
+    @PrimaryKey(autoGenerate = true)
+    private int id;
+    @ColumnInfo(name="courseID")
+    private String courseID;
+    @ColumnInfo(name="professor")
     private String professor;
+    @ColumnInfo(name="hoursSpent")
     private String hoursSpent;
+    @ColumnInfo(name="semester")
     private String semester;
+    @ColumnInfo(name="quizzes")
     private String quizzes;
+    @ColumnInfo(name="midtermF")
     private String midtermF;
+    @ColumnInfo(name="finalF")
     private String finalF;
+    @ColumnInfo(name="feedbackText")
     private String feedbackText;
 
-    public  feedbackClass ( String professor, String hoursSpent, String semester, String quizzes, String midtermF, String finalF, String feedbackText) {
+    public  feedbackClass ( String professor, String hoursSpent, String semester, String quizzes, String midtermF,
+                            String finalF, String feedbackText,String courseID) {
+        this.courseID = courseID;
         this.professor = professor;
         this.hoursSpent = hoursSpent;
         this.semester = semester;
@@ -17,6 +35,22 @@ public class feedbackClass {
         this.midtermF = midtermF;
         this.finalF = finalF;
         this.feedbackText = feedbackText;
+    }
+
+    public int getId() {
+        return id;
+    }
+
+    public void setId(int id) {
+        this.id = id;
+    }
+
+    public String getCourseID() {
+        return courseID;
+    }
+
+    public void setCourseID(String courseID) {
+        this.courseID = courseID;
     }
 
     public String getProfessor() {
