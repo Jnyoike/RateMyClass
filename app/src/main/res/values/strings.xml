@@ -1,0 +1,16 @@
+<resources>
+    <string name="app_name">Rate My Class</string>
+    <string name="welcomepagesubmit">Submit</string>
+    <string name="welcomepagecourseId">Course ID</string>
+    <string name="welcomePageCourseLevel">Course Level</string>
+    <string name="welcomepageDepartment">Department</string>
+    <string name="title_activity_feed_back_display">Rate My Class</string>
+    <string name="Question1">What is the last name of the professor you took it with?</string>
+    <string name="Question2">When did you take it?</string>
+    <string name="Question3">On average, how many hours per week did you devote to this course outside of class?</string>
+    <string name="Question4">Did you have any quizzes? Please elaborate if yes.</string>
+    <string name="Question5">What was the format of your midterm?</string>
+    <string name="Question6">What was the format of the final exam?</string>
+    <string name="Question7">What would you tell a Smithie about this course:</string>
+    <string name="Question8">Additional comments:</string>
+</resources>
