@@ -1,35 +1,30 @@
 package com.example.demouser.ratemyclass;
 
-import android.support.annotation.NonNull;
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
-import com.example.demouser.ratemyclass.R;
-import com.example.demouser.ratemyclass.cardHolder;
-import com.example.demouser.ratemyclass.feedbackClass;
-
 import java.util.ArrayList;
 import java.util.List;
 
-public class courseAdapter extends RecyclerView.Adapter<cardHolder> {
-    private List<feedbackClass> cards;
+public class FeedbackAdapter extends RecyclerView.Adapter<FeedbackHolder> {
+    private List<FeedbackClass> cards;
 
-    public courseAdapter () {
+    public FeedbackAdapter() {
 
         this.cards = new ArrayList<>();
     }
 
     @Override
-    public cardHolder onCreateViewHolder(ViewGroup parent, int i) {
+    public FeedbackHolder onCreateViewHolder(ViewGroup parent, int i) {
         LayoutInflater inflater = LayoutInflater.from(parent.getContext());
         View view = inflater.inflate(R.layout.feedback_card, parent, false);
-        return new cardHolder(view);
+        return new FeedbackHolder(view);
     }
 
     @Override
-    public void onBindViewHolder( cardHolder cardHolder, int position) {
+    public void onBindViewHolder(FeedbackHolder cardHolder, int position) {
         cardHolder.bindCard(cards.get(position));
     }
 
@@ -39,7 +34,7 @@ public class courseAdapter extends RecyclerView.Adapter<cardHolder> {
     }
 
     // set
-    public void setCards(List<feedbackClass> cards){
+    public void setCards(List<FeedbackClass> cards){
         this.cards = cards;
 
         notifyDataSetChanged();

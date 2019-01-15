@@ -10,31 +10,31 @@ import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.view.View;
 
-import java.util.ArrayList;
 import java.util.List;
 
-public class feedBackDisplay extends AppCompatActivity {
+public class FeedbackDisplay extends AppCompatActivity {
     Intent intent;
-    List<feedbackClass> cards;
-    courseAdapter adapter;
-    feedbackRepository rep;
+    List<FeedbackClass> cards;
+    FeedbackAdapter adapter;
+    FeedbackRepository rep;
+    // USE THE INTENT THING TO GET THE COURSE ID FROM THE WELCOME PAGE
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_feed_back_display);
+        setContentView(R.layout.activity_feedback_display);
 
         RecyclerView cardList = (RecyclerView) findViewById(R.id.cardList);
         cardList.setLayoutManager(new LinearLayoutManager(this));
-        //List<feedbackClass> cards = loadCardsFromDatabase();
-        adapter = new courseAdapter();
+        //List<FeedbackClass> cards = loadCardsFromDatabase();
+        adapter = new FeedbackAdapter();
         cardList.setAdapter(adapter);
 
-        rep = new feedbackRepository(getApplication());
+        rep = new FeedbackRepository(getApplication());
 
-        rep.getFeedbacks().observe(this, new Observer<List<feedbackClass>>() {
+        rep.getFeedbacks("CSC 111").observe(this, new Observer<List<FeedbackClass>>() {
             @Override
-            public void onChanged(@Nullable List<feedbackClass> feedbackClasses) {
+            public void onChanged(@Nullable List<FeedbackClass> feedbackClasses) {
                 adapter.setCards(feedbackClasses);
             }
         });
@@ -43,7 +43,7 @@ public class feedBackDisplay extends AppCompatActivity {
         fab.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                intent = new Intent(feedBackDisplay.this, FeedBackActivity.class);
+                intent = new Intent(FeedbackDisplay.this, FeedbackForm.class);
                 startActivity(intent);
             }
         });
@@ -52,14 +52,14 @@ public class feedBackDisplay extends AppCompatActivity {
         rep.delete();
     }
 
-   /** public List<feedbackClass> loadCardsFromDatabase() {
-        feedbackClass firstCard  = new feedbackClass("Nick", "10", "Fall 2018",
+   /** public List<FeedbackClass> loadCardsFromDatabase() {
+        FeedbackClass firstCard  = new FeedbackClass("Nick", "10", "Fall 2018",
                 "Yes", "Takehome", "Self-scheduled","It was great!", "CSC 111");
-        feedbackClass secondCard  = new feedbackClass("Dominique", "10", "Fall 2018",
+        FeedbackClass secondCard  = new FeedbackClass("Dominique", "10", "Fall 2018",
                 "Yes", "Takehome", "Self-scheduled","It was great!", "CSC 111");
-        feedbackClass thirdCard  = new feedbackClass("Sara", "10", "Fall 2018",
+        FeedbackClass thirdCard  = new FeedbackClass("Sara", "10", "Fall 2018",
                 "Yes", "Takehome", "Self-scheduled","It was great!", "CSC 111");
-        feedbackClass fourthCard  = new feedbackClass("JJ", "10", "Fall 2018",
+        FeedbackClass fourthCard  = new FeedbackClass("JJ", "10", "Fall 2018",
                 "Yes", "Takehome", "Self-scheduled","AJKDGHAKDHKAS FADJHG " +
                 "KAJSDHGKAJ SDHGAS HGKJASHG ASJGH SJDHGA JSKDHG SKGHAKJSDG LGHSALJKD GKADHG ASDKJHG SJDHG AKJG. ", "CSC 111");
 

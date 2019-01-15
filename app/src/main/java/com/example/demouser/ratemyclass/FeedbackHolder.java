@@ -4,7 +4,7 @@ import android.support.v7.widget.RecyclerView;
 import android.view.View;
 import android.widget.TextView;
 
-public class cardHolder extends RecyclerView.ViewHolder {
+public class FeedbackHolder extends RecyclerView.ViewHolder {
     TextView professor;
     TextView hoursSpent;
     TextView semester;
@@ -13,7 +13,7 @@ public class cardHolder extends RecyclerView.ViewHolder {
     TextView finalF;
     TextView feedbackText;
 
-    public cardHolder(View cardView ){
+    public FeedbackHolder(View cardView ){
         super(cardView);
 
         professor = (TextView) cardView.findViewById(R.id.professor);
@@ -25,7 +25,7 @@ public class cardHolder extends RecyclerView.ViewHolder {
         feedbackText = (TextView) cardView.findViewById(R.id.feedback);
     }
 
-    public void bindCard ( feedbackClass feed) {
+    public void bindCard ( FeedbackClass feed) {
         professor.setText(feed.getProfessor());
         hoursSpent.setText(feed.getHoursSpent());
         semester.setText(feed.getSemester());

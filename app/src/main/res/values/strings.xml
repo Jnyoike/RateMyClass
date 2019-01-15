@@ -4,6 +4,8 @@
     <string name="welcomepagecourseId">Course ID</string>
     <string name="welcomePageCourseLevel">Course Level</string>
     <string name="welcomepageDepartment">Department</string>
+    <string name="classHolder">Class Code</string>
+    <string name="classNameHolder">Name of the Class</string>
     <string name="title_activity_feed_back_display">Rate My Class</string>
     <string name="Question1">What is the last name of the professor you took it with?</string>
     <string name="Question2">When did you take it?</string>
@@ -13,4 +15,34 @@
     <string name="Question6">What was the format of the final exam?</string>
     <string name="Question7">What would you tell a Smithie about this course:</string>
     <string name="Question8">Additional comments:</string>
+    <string name="InstTitle">Feedback Form</string>
+    <string name="Instructions">Kindly enter the following information in this form accurately.
+        Make sure to complete all fields and spell everything correctly.</string>
+
+    <string-array name="Semesters">
+        <item>Fall</item>
+        <item>J-Term</item>
+        <item>Spring</item>
+    </string-array>
+
+    <string-array name="Years">
+        <item>2015</item>
+        <item>2016</item>
+        <item>2017</item>
+        <item>2018</item>
+        <item>2019</item>
+        <item>2020</item>
+    </string-array>
+
+    <string-array name="ExamFormats">
+        <item>Essay</item>
+        <item>No Exam</item>
+        <item>Group Project</item>
+        <item>In-Class Exam</item>
+        <item>Take-Home Exam</item>
+        <item>Individual Project</item>
+        <item>Self-Scheduled Exam</item>
+    </string-array>
+
+
 </resources>

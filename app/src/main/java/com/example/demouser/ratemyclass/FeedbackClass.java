@@ -5,7 +5,7 @@ import android.arch.persistence.room.Entity;
 import android.arch.persistence.room.PrimaryKey;
 
 @Entity(tableName = "feedback_table")
-public class feedbackClass {
+public class FeedbackClass {
     @PrimaryKey(autoGenerate = true)
     private int id;
     @ColumnInfo(name="courseID")
@@ -25,8 +25,8 @@ public class feedbackClass {
     @ColumnInfo(name="feedbackText")
     private String feedbackText;
 
-    public  feedbackClass ( String professor, String hoursSpent, String semester, String quizzes, String midtermF,
-                            String finalF, String feedbackText,String courseID) {
+    public FeedbackClass(String professor, String hoursSpent, String semester, String quizzes, String midtermF,
+                         String finalF, String feedbackText, String courseID) {
         this.courseID = courseID;
         this.professor = professor;
         this.hoursSpent = hoursSpent;

@@ -5,8 +5,26 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
-    tools:context=".feedBackDisplay"
+    tools:context=".FeedbackDisplay"
    >
+
+    <TextView
+        android:id="@+id/courseDisplayID"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        android:text="@string/classHolder"
+        android:textSize="24sp"
+        android:textStyle="bold" />
+
+    <TextView
+        android:id="@+id/courseDisplayName"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        android:text="@string/classNameHolder"
+        android:textSize="18sp"
+        android:textStyle="bold" />
 
     <android.support.v7.widget.RecyclerView
         android:id="@+id/cardList"
@@ -19,7 +37,7 @@
     <RelativeLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_weight="8">
+        android:layout_weight="4">
 
         <android.support.design.widget.FloatingActionButton
             android:id="@+id/fab"

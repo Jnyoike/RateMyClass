@@ -5,17 +5,17 @@ import android.arch.persistence.room.Room;
 import android.arch.persistence.room.RoomDatabase;
 import android.content.Context;
 
-@Database(entities = {feedbackClass.class}, version = 1, exportSchema = false)
-public abstract class feedbackDatabase extends RoomDatabase {
-    public abstract courseDao courseDao();
-    private static volatile feedbackDatabase INSTANCE;
+@Database(entities = {FeedbackClass.class, CourseInfo.class}, version = 2, exportSchema = false)
+public abstract class FeedbackDatabase extends RoomDatabase {
+    public abstract FeedbackDao courseDao();
+    private static volatile FeedbackDatabase INSTANCE;
 
-    static feedbackDatabase getDatabase(final Context context){
+    static FeedbackDatabase getDatabase(final Context context){
         if (INSTANCE == null) {
-            synchronized (feedbackDatabase.class) {
+            synchronized (FeedbackDatabase.class) {
                 if(INSTANCE == null){
                     INSTANCE = Room.databaseBuilder
-                            (context.getApplicationContext(), feedbackDatabase.class,
+                            (context.getApplicationContext(), FeedbackDatabase.class,
                                     "feedback_database").build();
                 }
             }

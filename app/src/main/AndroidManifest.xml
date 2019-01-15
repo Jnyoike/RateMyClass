@@ -19,9 +19,9 @@
             </intent-filter>
         </activity>
         <activity
-            android:name=".FeedBackActivity"
+            android:name=".FeedbackForm"
             android:label="@string/title_activity_feed_back_display" />
-        <activity android:name=".feedBackDisplay"></activity>
+        <activity android:name=".FeedbackDisplay"></activity>
     </application>
 
 </manifest>
