@@ -115,28 +115,6 @@
             android:layout_height="wrap_content"
             android:orientation="vertical">
 
-            <RadioGroup
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:orientation="horizontal">
-
-
-                <RadioButton
-                    android:id="@+id/radioButton"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_weight="1"
-                    android:text="Yes" />
-
-                <RadioButton
-                    android:id="@+id/radioButton2"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_weight="1"
-                    android:text="No" />
-
-            </RadioGroup>
-
             <EditText
                 android:id="@+id/quizzesAnswer"
                 android:layout_width="match_parent"
@@ -177,29 +155,12 @@
                 android:layout_marginBottom="10dp"
                 android:background="@android:drawable/btn_dropdown"
                 android:spinnerMode="dropdown" />
-
             <TextView
-                android:id="@+id/Q7"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:text="@string/Question7"
-                android:textStyle="bold" />
-
-            <EditText
-                android:id="@+id/Q7Answer"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:ems="10"
-                android:inputType="textPersonName"
-                android:text="" />
-
-            <TextView
-                android:id="@+id/additionalComments"
+                android:id="@+id/Q8"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:text="@string/Question8"
                 android:textStyle="bold" />
-
             <EditText
                 android:id="@+id/comments"
                 android:layout_width="match_parent"

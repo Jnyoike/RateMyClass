@@ -22,6 +22,7 @@
             android:name=".FeedbackForm"
             android:label="@string/title_activity_feed_back_display" />
         <activity android:name=".FeedbackDisplay"></activity>
+
     </application>
 
 </manifest>

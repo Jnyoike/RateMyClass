@@ -1,7 +1,9 @@
 package com.example.demouser.ratemyclass;
 
+import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
@@ -11,12 +13,14 @@ import android.widget.Spinner;
 public class FeedbackForm extends AppCompatActivity {
     String semester, year, midterm, finalF;
     FeedbackRepository rep = new FeedbackRepository(getApplication());
-
+    private String  courseId;
+    private final String TAG = "tage";
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_feedback_form);
-
+        Intent intent = getIntent();
+        courseId = intent.getStringExtra(FeedbackDisplay.KEY);
         // Spinners
         Spinner semesterSpin = (Spinner) findViewById(R.id.semester);
         Spinner yearSpin = (Spinner) findViewById(R.id.year);
@@ -87,7 +91,7 @@ public class FeedbackForm extends AppCompatActivity {
 
     // Take Info to data base
     public void feedbackSubmit(View view){
-        String courseID = "CSC 111";
+        String courseID = courseId;
         EditText prof = (EditText) findViewById(R.id.Q1Answer);
         String profString = prof.getText().toString();
 
@@ -109,6 +113,7 @@ public class FeedbackForm extends AppCompatActivity {
         EditText feedback = (EditText) findViewById(R.id.comments);
         String feedbackString = feedback.getText().toString();
 
+        Log.i(TAG, courseID);
         rep.insert(new FeedbackClass(profString, hoursString, semesterString, quizzesString, midtermString, finalString,
                 feedbackString, courseID));
 

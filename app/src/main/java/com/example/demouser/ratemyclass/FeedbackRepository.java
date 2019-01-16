@@ -37,6 +37,9 @@ public class FeedbackRepository {
     LiveData<List<String>> getCourseIDs(String level, String dept){
         return courseDao.getCourseID(level, dept);
     }
+    LiveData<String> getCourseName(String id){
+        return courseDao.getCourseName(id);
+    }
 
 
     private static class insertAsyncTask extends AsyncTask<FeedbackClass, Void, Void> {

@@ -13,8 +13,7 @@
     <string name="Question4">Did you have any quizzes? Please elaborate if yes.</string>
     <string name="Question5">What was the format of your midterm?</string>
     <string name="Question6">What was the format of the final exam?</string>
-    <string name="Question7">What would you tell a Smithie about this course:</string>
-    <string name="Question8">Additional comments:</string>
+    <string name="Question8">What would you tell a Smithie about this course or do you have any additional comments?</string>
     <string name="InstTitle">Feedback Form</string>
     <string name="Instructions">Kindly enter the following information in this form accurately.
         Make sure to complete all fields and spell everything correctly.</string>

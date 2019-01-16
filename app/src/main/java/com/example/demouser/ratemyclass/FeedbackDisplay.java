@@ -9,6 +9,7 @@ import android.os.Bundle;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.view.View;
+import android.widget.TextView;
 
 import java.util.List;
 
@@ -17,13 +18,22 @@ public class FeedbackDisplay extends AppCompatActivity {
     List<FeedbackClass> cards;
     FeedbackAdapter adapter;
     FeedbackRepository rep;
+    String courseName;
+    public static final String KEY = "KEY";
     // USE THE INTENT THING TO GET THE COURSE ID FROM THE WELCOME PAGE
-
+    TextView courseNameText;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_feedback_display);
 
+        Intent intent2 = getIntent();
+        final String courseId = intent2.getStringExtra(WelcomePage.KEY);
+       // String courseName
+        TextView courseIdText = (TextView ) findViewById(R.id.courseDisplayID);
+        courseIdText.setText(courseId);
+         courseNameText = (TextView ) findViewById(R.id.courseDisplayName);
+        //courseNameText.setText(courseName);
         RecyclerView cardList = (RecyclerView) findViewById(R.id.cardList);
         cardList.setLayoutManager(new LinearLayoutManager(this));
         //List<FeedbackClass> cards = loadCardsFromDatabase();
@@ -32,10 +42,17 @@ public class FeedbackDisplay extends AppCompatActivity {
 
         rep = new FeedbackRepository(getApplication());
 
-        rep.getFeedbacks("CSC 111").observe(this, new Observer<List<FeedbackClass>>() {
+        rep.getFeedbacks(courseId).observe(this, new Observer<List<FeedbackClass>>() {
             @Override
             public void onChanged(@Nullable List<FeedbackClass> feedbackClasses) {
                 adapter.setCards(feedbackClasses);
+            }
+        });
+        rep.getCourseName(courseId).observe(this, new Observer<String>() {
+            @Override
+            public void onChanged(@Nullable String s) {
+                courseName = s;
+                courseNameText.setText(courseName);
             }
         });
 
@@ -44,6 +61,7 @@ public class FeedbackDisplay extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 intent = new Intent(FeedbackDisplay.this, FeedbackForm.class);
+                intent.putExtra(KEY, courseId);
                 startActivity(intent);
             }
         });
