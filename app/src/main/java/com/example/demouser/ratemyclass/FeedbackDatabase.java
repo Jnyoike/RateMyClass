@@ -5,7 +5,7 @@ import android.arch.persistence.room.Room;
 import android.arch.persistence.room.RoomDatabase;
 import android.content.Context;
 
-@Database(entities = {FeedbackClass.class, CourseInfo.class}, version = 2, exportSchema = false)
+@Database(entities = {FeedbackClass.class, CourseInfo.class}, version = 3, exportSchema = false)
 public abstract class FeedbackDatabase extends RoomDatabase {
     public abstract FeedbackDao courseDao();
     private static volatile FeedbackDatabase INSTANCE;

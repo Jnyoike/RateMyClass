@@ -3,18 +3,31 @@ package com.example.demouser.ratemyclass;
 import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.text.Editable;
+import android.text.TextWatcher;
 import android.util.Log;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
+import android.widget.Button;
 import android.widget.EditText;
+import android.widget.RatingBar;
 import android.widget.Spinner;
 
 public class FeedbackForm extends AppCompatActivity {
     String semester, year, midterm, finalF;
     FeedbackRepository rep = new FeedbackRepository(getApplication());
     private String  courseId;
-    private final String TAG = "tage";
+//    private final String TAG = "tage";
+    private EditText prof;
+    private EditText hours;
+    private EditText quizzes;
+    String profString;
+    String hoursString;
+    String quizzesString;
+    Button submit;
+    RatingBar rating;
+    Float ratingStars;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -26,6 +39,23 @@ public class FeedbackForm extends AppCompatActivity {
         Spinner yearSpin = (Spinner) findViewById(R.id.year);
         Spinner midtermSpin = (Spinner) findViewById(R.id.midtermInput);
         Spinner finalSpin = (Spinner) findViewById(R.id.finalInput);
+
+        //EditTexts
+        prof = (EditText) findViewById(R.id.Q1Answer);
+        hours = (EditText) findViewById(R.id.Q3Answer);
+        quizzes = (EditText) findViewById(R.id.quizzesAnswer);
+
+        //Button
+        submit = (Button) findViewById(R.id.submitButton);
+
+        //RatingBar
+        rating = (RatingBar) findViewById(R.id.ratingBarForm);
+        rating.setOnRatingBarChangeListener(new RatingBar.OnRatingBarChangeListener() {
+            @Override
+            public void onRatingChanged(RatingBar ratingBar, float rating, boolean fromUser) {
+                ratingStars = rating;
+            }
+        });
 
         // Adapters
         ArrayAdapter<CharSequence> semAdapter = ArrayAdapter.createFromResource(
@@ -54,8 +84,32 @@ public class FeedbackForm extends AppCompatActivity {
         yearSpin.setOnItemSelectedListener(yearListener);
         midtermSpin.setOnItemSelectedListener(midtermListener);
         finalSpin.setOnItemSelectedListener(finalListener);
+        //Text Listeners
+        hours.addTextChangedListener(textWatcher);
+        quizzes.addTextChangedListener(textWatcher);
+        prof.addTextChangedListener(textWatcher);
     }
+    //TextWatcher
+    public TextWatcher textWatcher = new TextWatcher() {
+        @Override
+        public void beforeTextChanged(CharSequence s, int start, int count, int after) {
 
+        }
+
+        @Override
+        public void onTextChanged(CharSequence s, int start, int before, int count) {
+            hoursString = hours.getText().toString().trim();
+            quizzesString = quizzes.getText().toString().trim();
+            profString = prof.getText().toString().trim();
+            submit.setEnabled(!hoursString.isEmpty() && !profString.isEmpty() && !quizzesString.isEmpty());
+
+        }
+
+        @Override
+        public void afterTextChanged(Editable s) {
+
+        }
+    };
     // Listeners
     public AdapterView.OnItemSelectedListener semesterListener = new AdapterView.OnItemSelectedListener() {
         @Override
@@ -92,17 +146,14 @@ public class FeedbackForm extends AppCompatActivity {
     // Take Info to data base
     public void feedbackSubmit(View view){
         String courseID = courseId;
-        EditText prof = (EditText) findViewById(R.id.Q1Answer);
-        String profString = prof.getText().toString();
-
-        EditText hours = (EditText) findViewById(R.id.Q3Answer);
-        String hoursString = hours.getText().toString();
+//        profString = prof.getText().toString();
+//
+//        hoursString = hours.getText().toString();
 
         //EditText semester = (EditText) findViewById(R.id.Q1Answer);
         String semesterString = semester + " " + year;
 
-        EditText quizzes = (EditText) findViewById(R.id.quizzesAnswer);
-        String quizzesString = quizzes.getText().toString();
+//        quizzesString = quizzes.getText().toString();
 
         //EditText midterm = (EditText) findViewById(R.id.Q1Answer);
         String midtermString = midterm;
@@ -113,9 +164,8 @@ public class FeedbackForm extends AppCompatActivity {
         EditText feedback = (EditText) findViewById(R.id.comments);
         String feedbackString = feedback.getText().toString();
 
-        Log.i(TAG, courseID);
         rep.insert(new FeedbackClass(profString, hoursString, semesterString, quizzesString, midtermString, finalString,
-                feedbackString, courseID));
+                feedbackString, courseID, ratingStars));
 
         finish();
     }

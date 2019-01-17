@@ -144,47 +144,47 @@ public class WelcomePage extends AppCompatActivity {
         @Override
         public void onNothingSelected(AdapterView<?> parent) { }};
     public void addCourses() {
-//        CourseInfo course1 = new CourseInfo("CSC 102", "How the Internet Works",
-//                "100", "Computer Science");
-//        CourseInfo course2 = new CourseInfo("CSC 103", "How Computers Work",
-//                "100", "Computer Science");
-//        CourseInfo course3 = new CourseInfo("CSC 111", "Intro Computer Science through Programming",
-//                "100", "Computer Science");
-//        CourseInfo course4 = new CourseInfo("CSC 212", "Programming with Data Structures",
-//                "200", "Computer Science");
-//        CourseInfo course5 = new CourseInfo("CSC 220", "Advanced Programming Techniques",
-//                "200", "Computer Science");
-//        CourseInfo course6 = new CourseInfo("CSC 250", "Theoretical Foundations Computer Science",
-//                "200", "Computer Science");
-//        CourseInfo course7 = new CourseInfo("CSC 256", "Intelligent User Interfaces",
-//                "200", "Computer Science");
-//        CourseInfo course8 = new CourseInfo("CSC 262", "Operating Systems",
-//                "200", "Computer Science");
-//        CourseInfo course9 = new CourseInfo("CSC 270", "Digital Circuits and Systems",
-//                "200", "Computer Science");
-//        CourseInfo course10 = new CourseInfo("CSC 290", "Artificial Intelligence",
-//                "200", "Computer Science");
-//        CourseInfo course11 = new CourseInfo("CSC 330", "Database Systems",
-//                "300", "Computer Science");
-//        CourseInfo course12 = new CourseInfo("CSC 354", "Seminar in Music Processing",
-//                "300", "Computer Science");
-//        CourseInfo course13 = new CourseInfo("CSC 105", "Interactive Web Documents",
-//                "100", "Computer Science");
-//        CourseInfo course14 = new CourseInfo("CSC 109", "Communicating With Data",
-//                "100", "Computer Science");
-//        CourseInfo course15 = new CourseInfo("CSC 231", "Microprocessors and Assembly Language",
-//                "200", "Computer Science");
-//        CourseInfo course16 = new CourseInfo("CSC 240", "Graphics",
-//                "200", "Computer Science");
-//        CourseInfo course17 = new CourseInfo("CSC 252", "Algorithms",
-//                "200", "Computer Science");
-//        CourseInfo course18 = new CourseInfo("CSC 293", "Machine Learning",
-//                "200", "Computer Science");
-//        CourseInfo course19 = new CourseInfo("CSC 334", "Topics in Computational Biology",
-//                "300", "Computer Science");
-//        CourseInfo course20 = new CourseInfo("CSC 390", "Artificial Intelligence and Natural Language Understanding",
-//                "300", "Computer Science");
-//
+        CourseInfo course1 = new CourseInfo("CSC 102", "How the Internet Works",
+                "100", "Computer Science");
+        CourseInfo course2 = new CourseInfo("CSC 103", "How Computers Work",
+                "100", "Computer Science");
+        CourseInfo course3 = new CourseInfo("CSC 111", "Intro Computer Science through Programming",
+                "100", "Computer Science");
+        CourseInfo course4 = new CourseInfo("CSC 212", "Programming with Data Structures",
+                "200", "Computer Science");
+        CourseInfo course5 = new CourseInfo("CSC 220", "Advanced Programming Techniques",
+                "200", "Computer Science");
+        CourseInfo course6 = new CourseInfo("CSC 250", "Theoretical Foundations Computer Science",
+                "200", "Computer Science");
+        CourseInfo course7 = new CourseInfo("CSC 256", "Intelligent User Interfaces",
+                "200", "Computer Science");
+        CourseInfo course8 = new CourseInfo("CSC 262", "Operating Systems",
+                "200", "Computer Science");
+        CourseInfo course9 = new CourseInfo("CSC 270", "Digital Circuits and Systems",
+                "200", "Computer Science");
+        CourseInfo course10 = new CourseInfo("CSC 290", "Artificial Intelligence",
+                "200", "Computer Science");
+        CourseInfo course11 = new CourseInfo("CSC 330", "Database Systems",
+                "300", "Computer Science");
+        CourseInfo course12 = new CourseInfo("CSC 354", "Seminar in Music Processing",
+                "300", "Computer Science");
+        CourseInfo course13 = new CourseInfo("CSC 105", "Interactive Web Documents",
+                "100", "Computer Science");
+        CourseInfo course14 = new CourseInfo("CSC 109", "Communicating With Data",
+                "100", "Computer Science");
+        CourseInfo course15 = new CourseInfo("CSC 231", "Microprocessors and Assembly Language",
+                "200", "Computer Science");
+        CourseInfo course16 = new CourseInfo("CSC 240", "Graphics",
+                "200", "Computer Science");
+        CourseInfo course17 = new CourseInfo("CSC 252", "Algorithms",
+                "200", "Computer Science");
+        CourseInfo course18 = new CourseInfo("CSC 293", "Machine Learning",
+                "200", "Computer Science");
+        CourseInfo course19 = new CourseInfo("CSC 334", "Topics in Computational Biology",
+                "300", "Computer Science");
+        CourseInfo course20 = new CourseInfo("CSC 390", "Artificial Intelligence and Natural Language Understanding",
+                "300", "Computer Science");
+
 
 
 
@@ -233,28 +233,28 @@ public class WelcomePage extends AppCompatActivity {
 
 
         List<CourseInfo> courses = new ArrayList<>();
-//        courses.add(course1);
-//        courses.add(course2);
-//        courses.add(course3);
-//        courses.add(course4);
-//        courses.add(course5);
-//        courses.add(course6);
-//        courses.add(course7);
-//        courses.add(course8);
-//        courses.add(course9);
-//        courses.add(course10);
-//        courses.add(course11);
-//        courses.add(course12);
-//        courses.add(course13);
-//        courses.add(course14);
-//        courses.add(course15);
-//        courses.add(course16);
-//        courses.add(course17);
-//        courses.add(course18);
-//        courses.add(course19);
-//        courses.add(course20);
+        courses.add(course1);
+        courses.add(course2);
+        courses.add(course3);
+        courses.add(course4);
+        courses.add(course5);
+        courses.add(course6);
+        courses.add(course7);
+        courses.add(course8);
+        courses.add(course9);
+        courses.add(course10);
+        courses.add(course11);
+        courses.add(course12);
+        courses.add(course13);
+        courses.add(course14);
+        courses.add(course15);
+        courses.add(course16);
+        courses.add(course17);
+        courses.add(course18);
+        courses.add(course19);
+        courses.add(course20);
 
-//        repo.insertMultipleCourses(courses);
+       repo.insertMultipleCourses(courses);
 
 
 

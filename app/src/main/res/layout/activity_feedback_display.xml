@@ -25,7 +25,9 @@
         android:text="@string/classNameHolder"
         android:textSize="18sp"
         android:textStyle="bold" />
-
+    <FrameLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
     <android.support.v7.widget.RecyclerView
         android:id="@+id/cardList"
         android:layout_width="match_parent"
@@ -49,18 +51,11 @@
             android:clickable="true"
             android:focusable="true"
             app:backgroundTint="@color/colorPrimary"
-            app:srcCompat="@drawable/pluswhite" />
+            app:srcCompat="@drawable/pluswhite"
+            android:foregroundGravity="bottom"
+            />
 
-        <Button
-            android:id="@+id/deletebutton"
-            android:layout_width="250px"
-            android:layout_height="wrap_content"
-            android:layout_alignParentLeft="true"
-            android:layout_alignParentBottom="true"
-            android:background="@color/colorPrimary"
-            android:onClick="deleteButton"
-
-            android:text="Clear Database" />
     </RelativeLayout>
+    </FrameLayout>
 
 </LinearLayout>

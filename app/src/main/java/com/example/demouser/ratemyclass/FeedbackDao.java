@@ -35,4 +35,5 @@ public interface FeedbackDao {
 
     @Query("SELECT DISTINCT courseName FROM course_table WHERE courseID LIKE :id")
     LiveData<String> getCourseName(String id);
+
 }

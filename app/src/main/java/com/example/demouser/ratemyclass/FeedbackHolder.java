@@ -2,6 +2,7 @@ package com.example.demouser.ratemyclass;
 
 import android.support.v7.widget.RecyclerView;
 import android.view.View;
+import android.widget.RatingBar;
 import android.widget.TextView;
 
 public class FeedbackHolder extends RecyclerView.ViewHolder {
@@ -12,6 +13,7 @@ public class FeedbackHolder extends RecyclerView.ViewHolder {
     TextView midtermF;
     TextView finalF;
     TextView feedbackText;
+    RatingBar ratingBar;
 
     public FeedbackHolder(View cardView ){
         super(cardView);
@@ -23,6 +25,9 @@ public class FeedbackHolder extends RecyclerView.ViewHolder {
         midtermF = (TextView) cardView.findViewById(R.id.midterm);
         finalF = (TextView) cardView.findViewById(R.id.FINAL);
         feedbackText = (TextView) cardView.findViewById(R.id.feedback);
+        ratingBar = (RatingBar) cardView.findViewById(R.id.ratingBar);
+        ratingBar.setIsIndicator(true);
+
     }
 
     public void bindCard ( FeedbackClass feed) {
@@ -33,6 +38,7 @@ public class FeedbackHolder extends RecyclerView.ViewHolder {
         midtermF.setText(feed.getMidtermF());
         finalF.setText(feed.getFinalF());
         feedbackText.setText(feed.getFeedbackText());
+        ratingBar.setRating(feed.getRating());
     }
 
 

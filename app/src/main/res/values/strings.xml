@@ -17,6 +17,7 @@
     <string name="InstTitle">Feedback Form</string>
     <string name="Instructions">Kindly enter the following information in this form accurately.
         Make sure to complete all fields and spell everything correctly.</string>
+    <string name="rating">How would you rate the class?</string>
 
     <string-array name="Semesters">
         <item>Fall</item>

@@ -24,9 +24,11 @@ public class FeedbackClass {
     private String finalF;
     @ColumnInfo(name="feedbackText")
     private String feedbackText;
+    @ColumnInfo(name="rating")
+    private Float rating;
 
     public FeedbackClass(String professor, String hoursSpent, String semester, String quizzes, String midtermF,
-                         String finalF, String feedbackText, String courseID) {
+                         String finalF, String feedbackText, String courseID, Float rating) {
         this.courseID = courseID;
         this.professor = professor;
         this.hoursSpent = hoursSpent;
@@ -35,6 +37,7 @@ public class FeedbackClass {
         this.midtermF = midtermF;
         this.finalF = finalF;
         this.feedbackText = feedbackText;
+        this.rating = rating;
     }
 
     public int getId() {
@@ -109,4 +112,11 @@ public class FeedbackClass {
         this.semester = semester;
     }
 
+    public Float getRating() {
+        return rating;
+    }
+
+    public void setRating(Float rating) {
+        this.rating = rating;
+    }
 }
