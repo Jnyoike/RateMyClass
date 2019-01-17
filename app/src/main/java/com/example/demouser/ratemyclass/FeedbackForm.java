@@ -50,6 +50,7 @@ public class FeedbackForm extends AppCompatActivity {
 
         //RatingBar
         rating = (RatingBar) findViewById(R.id.ratingBarForm);
+        ratingStars = 0.0f;
         rating.setOnRatingBarChangeListener(new RatingBar.OnRatingBarChangeListener() {
             @Override
             public void onRatingChanged(RatingBar ratingBar, float rating, boolean fromUser) {
